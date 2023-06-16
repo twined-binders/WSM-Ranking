@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import getData from "./components/api";
-import hitungData from "./components/wsm";
+import HitungData from "./components/wsm";
 import "./App.css";
 
 function App() {
@@ -47,6 +47,9 @@ function App() {
           <DispData />
         </tbody>
       </table>
+      <div>
+        <HitungData data={resultData} />
+      </div>
     </>
   );
 }
