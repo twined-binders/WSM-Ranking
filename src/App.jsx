@@ -47,9 +47,19 @@ function App() {
           <DispData />
         </tbody>
       </table>
-      <div>
-        <HitungData data={resultData} />
-      </div>
+      <table className="mx-auto m-10 w-2/3 text-sm text-left text-gray-500 dark:text-gray-400 rounded-lg">
+        <thead className="text-xs text-slate-100 uppercase bg-slate-950">
+          <tr className="h-9">
+            <th className="p-2 pl-6">No.</th>
+            <th className="p-2">Brand</th>
+            <th className="p-2">Model</th>
+            <th className="p-2">Nilai</th>
+          </tr>
+        </thead>
+        <tbody>
+          <HitungData data={resultData} />
+        </tbody>
+      </table>
     </>
   );
 }

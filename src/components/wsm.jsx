@@ -1,24 +1,24 @@
 import React from "react";
 
 const HitungData = ({ data }) => {
-  const calculateWSM = (data) => {
-    // Lakukan perhitungan WSM pada data di sini
-    const wsm = data.layar * 0.25 + data.kamera * 0.25 + data.prosesor * 0.25 + data.baterai * 0.25; // Rumus perhitungan WSM
-    console.log({ wsm: wsm });
+  const hitungWSM = (data) => {
+    const wsm = data.layar * 0.25 + data.kamera * 0.25 + data.prosesor * 0.25 + data.baterai * 0.25;
+    return wsm;
   };
 
-  return (
-    <div>
-      <h2>Data WSM:</h2>
-      <ul className="text-white">
-        {data.map((data, i) => (
-          <li key={i}>
-            {data.nama} - WSM: {calculateWSM(data)}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+  const sortedData = data.sort((a, b) => hitungWSM(b) - hitungWSM(a));
+  let nomor = 1;
+
+  return sortedData.map((result, i) => {
+    return (
+      <tr key={i} className="h-7 odd:bg-slate-800 even:bg-slate-700 hover:bg-slate-600">
+        <td className="p-2 pl-7">{nomor++}</td>
+        <td className="p-2">{result.brand}</td>
+        <td className="p-2">{result.model}</td>
+        <td className="p-2 pl-4">{hitungWSM(result)}</td>
+      </tr>
+    );
+  });
 };
 
 export default HitungData;
