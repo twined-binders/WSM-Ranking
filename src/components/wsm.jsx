@@ -1,8 +1,8 @@
 import React from "react";
 
-const HitungData = ({ data }) => {
+const HitungData = ({ data, bobot }) => {
   const hitungWSM = (data) => {
-    const wsm = data.layar * 0.25 + data.kamera * 0.25 + data.prosesor * 0.25 + data.baterai * 0.25;
+    const wsm = data.layar * bobot[0].nilai + data.prosesor * bobot[1].nilai + data.kamera * bobot[2].nilai + data.baterai * bobot[3].nilai;
     return wsm;
   };
 
