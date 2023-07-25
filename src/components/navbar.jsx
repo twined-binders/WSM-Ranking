@@ -33,8 +33,14 @@ function Navbar() {
             </p>
           </div>
         </div>
+        <div className="mt-12 flex justify-center">
+          <a href="#carakerja">
+            <img src="arrow.svg" alt="arrow" className="animate-bounce h-10" />
+          </a>
+        </div>
       </div>
-      <div className="bg-gradient-to-b from-violet-800 to-sky-700 h-screen text-center">
+
+      <div id="carakerja" className="bg-gradient-to-b from-violet-800 to-sky-700 h-screen text-center">
         <div>
           <h1 className="text-4xl font-bold text-neutral-100">Cara Kerja ?</h1>
         </div>
@@ -46,8 +52,13 @@ function Navbar() {
             </p>
           </div>
         </div>
+        <div className="mt-12 flex justify-center">
+          <a href="#jadi">
+            <img src="arrow.svg" alt="arrow" className="animate-bounce h-10" />
+          </a>
+        </div>
       </div>
-      <div className="bg-gradient-to-b from-sky-700 to-sky-500 h-2/3 text-center">
+      <div id="jadi" className="bg-gradient-to-b from-sky-700 to-sky-500 h-2/3 text-center">
         <div>
           <h1 className="text-4xl font-bold text-neutral-100">Jadi ?</h1>
         </div>
@@ -59,7 +70,7 @@ function Navbar() {
       </div>
       <div className="py-40 bg-sky-500 flex justify-center">
         <a href="#mulai" className="">
-          <button className="bg-gradient-to-r from-sky-70000 to-violet-700 border border-sky-100 px-8 py-4 font-semibold rounded-lg text-neutral-100 uppercase transition-all duration-300 hover:scale-105 hover:from-sky-400 hover:to-violet-400 hover:shadow-2xl hover:border hover:border-sky-100">
+          <button className="bg-gradient-to-r from-sky-70000 to-violet-700 border border-sky-100 px-8 py-4 font-semibold rounded-lg text-neutral-100 uppercase transition-all duration-300 hover:scale-105 hover:from-sky-400 hover:to-violet-400 hover:shadow-2xl hover:border hover:border-sky-100 animate-bounce">
             Kembali ke Atas
           </button>
         </a>
