@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import getBobot from "./bobot_api";
 import { Link } from "react-router-dom";
 
-function EditBobot() {
+function Bobot() {
   const [bobot, setBobot] = useState([]);
 
   useEffect(() => {
@@ -65,4 +65,4 @@ function EditBobot() {
   );
 }
 
-export default EditBobot;
+export default Bobot;

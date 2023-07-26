@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Navbar from "../../components/navbar";
 import App from "../../App";
 import Create from "../../components/create";
-import EditBobot from "../../components/Bobot";
+import Bobot from "../../components/bobot";
 import Update from "../../components/EditBobot";
 
 export const router = createBrowserRouter([
@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/bobot",
-    element: <EditBobot />,
+    element: <Bobot />,
   },
   {
     path: "/update",
