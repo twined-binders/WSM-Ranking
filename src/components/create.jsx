@@ -2,6 +2,8 @@ import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
 
 function Create() {
   const [brand, setBrand] = useState("");
@@ -16,26 +18,20 @@ function Create() {
     event.preventDefault();
     const formElement = document.getElementById("form");
     try {
-      axios
-        .post("https://648afd5417f1536d65ea15b8.mockapi.io/api/data", {
-          brand,
-          model,
-          layar,
-          prosesor,
-          kamera,
-          baterai,
-          harga,
-        })
-        .then(() => {
-          setBrand("");
-          setModel("");
-          setHarga("");
-          setLayar("");
-          setProsesor("");
-          setKamera("");
-          setBaterai("");
-          formRef.current.reset();
-        });
+      axios.post("https://648afd5417f1536d65ea15b8.mockapi.io/api/data", {
+        brand,
+        model,
+        layar,
+        prosesor,
+        kamera,
+        baterai,
+        harga,
+      });
+      Toastify({
+        text: "Berhasil Ditambahkan",
+        duration: 1000,
+        position: "center",
+      }).showToast();
     } catch (error) {
       console.log(error);
     }
@@ -89,8 +85,9 @@ function Create() {
               type="number"
               name="layar"
               id="layar"
+              step="0.01"
               className="rounded bg-slate-500 focus:bg-slate-200 py-2 px-3 uppercase text-xs w-full font-medium focus:outline-none focus:ring focus:ring-violet-400"
-              onChange={(e) => setLayar(e.target.value)}
+              onChange={(e) => setLayar(parseFloat(e.target.value))}
             />
           </div>
           <div className="mb-4">
@@ -101,8 +98,9 @@ function Create() {
               type="number"
               name="prosesor"
               id="prosesor"
+              step="0.01"
               className="rounded bg-slate-500 focus:bg-slate-200 py-2 px-3 uppercase text-xs w-full font-medium focus:outline-none focus:ring focus:ring-violet-400"
-              onChange={(e) => setProsesor(e.target.value)}
+              onChange={(e) => setProsesor(parseFloat(e.target.value))}
             />
           </div>
           <div className="mb-4">
@@ -113,8 +111,9 @@ function Create() {
               type="number"
               name="kamera"
               id="kamera"
+              step="0.01"
               className="rounded py-2 bg-slate-500 focus:bg-slate-200 px-3 uppercase text-xs w-full font-medium focus:outline-none focus:ring focus:ring-violet-400"
-              onChange={(e) => setKamera(e.target.value)}
+              onChange={(e) => setKamera(parseFloat(e.target.value))}
             />
           </div>
           <div className="mb-4">
@@ -125,8 +124,9 @@ function Create() {
               type="number"
               name="baterai"
               id="baterai"
+              step="0.01"
               className="rounded py-2 bg-slate-500 focus:bg-slate-200 px-3 uppercase text-xs w-full font-medium focus:outline-none focus:ring focus:ring-violet-400"
-              onChange={(e) => setBaterai(e.target.value)}
+              onChange={(e) => setBaterai(parseFloat(e.target.value))}
             />
           </div>
 

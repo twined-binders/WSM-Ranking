@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import getData from "./components/api";
 import HitungData from "./components/wsm";
 import AddData from "./components/create";
-import EditBobot from "./components/editBobot";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import getBobot from "./components/bobot";
+import getBobot from "./components/bobot_api";
+import axios from "axios";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
 
 function App() {
   const [resultData, setData] = useState([]);
@@ -31,6 +33,21 @@ function App() {
     return <div>Data sedang diproses....</div>;
   }
 
+  const upBobot = (dataBobot) => {
+    console.log(dataBobot);
+  };
+
+  const onDelete = async (id) => {
+    await axios.delete(`https://648afd5417f1536d65ea15b8.mockapi.io/api/data/${id}`);
+    const updatedData = await getData();
+    setData(updatedData);
+    Toastify({
+      text: "Berhasil Dihapus",
+      duration: 1000,
+      position: "center",
+    }).showToast();
+  };
+
   const DispData = () => {
     let nomor = 1;
     return resultData.map((data, i) => {
@@ -44,6 +61,11 @@ function App() {
           <td className="p-2 text-center">{data.prosesor}</td>
           <td className="p-2 text-center">{data.kamera}</td>
           <td className="p-2 text-center">{data.baterai}</td>
+          <td className="p-2 text-center">
+            <button onClick={() => onDelete(data.id)} className="text-white bg-red-500 hover:bg-red-600 font-medium rounded-lg text-sm px-2 py-2 mb-2 duration-200">
+              Hapus
+            </button>
+          </td>
         </tr>
       );
     });
@@ -62,6 +84,7 @@ function App() {
             <th className="p-2 text-center">Prosesor</th>
             <th className="p-2 text-center">Kamera</th>
             <th className="p-2 text-center">Baterai</th>
+            <th className="p-2 text-center">Hapus</th>
           </tr>
         </thead>
         <tbody>
@@ -81,7 +104,7 @@ function App() {
           <HitungData data={resultData} bobot={resultBobot} />
         </tbody>
       </table>
-      <div className="w-2/3 mx-auto flex justify-end gap-9">
+      <div className="w-2/3 mx-auto flex justify-end gap-9 mb-14">
         <Link to={"/"}>
           <button
             type="button"
@@ -90,8 +113,13 @@ function App() {
             Kembali
           </button>
         </Link>
+        <Link to={"/bobot"}>
+          <button type="button" onClick={() => upBobot(resultBobot)} className="text-white bg-violet-800 hover:bg-violet-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 ">
+            Update Bobot
+          </button>
+        </Link>
         <Link to={"/create"}>
-          <button type="button" className="text-white bg-sky-700 hover:bg-sky-800 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2">
+          <button type="submit" className="text-white bg-sky-700 hover:bg-sky-800 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2">
             Tambah Data
           </button>
         </Link>

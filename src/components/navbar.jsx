@@ -70,7 +70,7 @@ function Navbar() {
       </div>
       <div className="py-40 bg-sky-500 flex justify-center">
         <a href="#mulai" className="">
-          <button className="bg-gradient-to-r from-sky-70000 to-violet-700 border border-sky-100 px-8 py-4 font-semibold rounded-lg text-neutral-100 uppercase transition-all duration-300 hover:scale-105 hover:from-sky-400 hover:to-violet-400 hover:shadow-2xl hover:border hover:border-sky-100 animate-bounce">
+          <button className="bg-gradient-to-r from-sky-70000 to-violet-700 border border-sky-100 px-8 py-4 font-semibold rounded-lg text-neutral-100 uppercase transition-all duration-300 hover:scale-105 hover:from-sky-400 hover:to-violet-400 hover:shadow-2xl hover:border hover:border-sky-100">
             Kembali ke Atas
           </button>
         </a>
